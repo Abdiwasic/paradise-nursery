@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+const basename = import.meta.env.DEV ? "/" : "/paradise-nursery";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./App.css";
@@ -38,7 +40,7 @@ function LandingPage() {
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename={basename}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/plants" element={<ProductList />} />
